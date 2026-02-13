@@ -34,7 +34,16 @@ class ChatResponse(BaseModel):
     entities: List[dict]
     confidence: float
 
-def generate_bot_response(intent, entities, history, grounded_text):
+def generate_bot_response(intent, entities, history, grounded_text, context):
+    # Determine the primary subject (entity) for this turn
+    subject = None
+    if entities:
+        # User mentioned a new entity
+        subject = entities[0]["word"]
+    elif "PRODUCT" in context:
+        # Fallback to previously mentioned product from context
+        subject = context["PRODUCT"]
+
     # Rule-based grounding for specific mission-critical intents
     if intent == "greeting":
         return "Hello! I'm Aura, your AI assistant. How can I help you today?"
@@ -42,7 +51,21 @@ def generate_bot_response(intent, entities, history, grounded_text):
         return "Goodbye! Feel free to reach out if you have more questions."
     elif intent == "human_handoff":
         return "I'm connecting you with a human agent for deeper assistance. One moment please..."
-        
+    
+    # Process Order Status with Context
+    if intent == "order_status":
+        if subject:
+            return f"Your order for {subject} is currently being processed and will be shipped soon."
+        return "I can check your order status. Could you please specify which product you're inquiring about?"
+
+    # Process Product Inquiry with Context
+    if intent == "product_inquiry":
+        if grounded_text:
+            return grounded_text
+        if subject:
+            return f"The {subject} is one of our top-rated items. Would you like to see the current technical specifications or pricing?"
+        return "Aura offers a range of premium products. Which specific product or category are you interested in?"
+
     if grounded_text:
         return grounded_text
         
@@ -61,12 +84,16 @@ async def chat(request: ChatRequest):
     for entity in nlp_result["entities"]:
         memory_manager.update_context(session_id, entity["entity"], entity["word"])
     
-    # Generate response
+    # Get cumulative context
+    session_context = memory_manager.get_context(session_id)
+    
+    # Generate response with context awareness
     bot_msg = generate_bot_response(
         nlp_result["intent"], 
         nlp_result["entities"], 
         memory_manager.get_history(session_id),
-        nlp_result["grounded_response"]
+        nlp_result["grounded_response"],
+        session_context
     )
     
     memory_manager.add_message(session_id, "bot", bot_msg)

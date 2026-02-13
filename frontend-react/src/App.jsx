@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Send, Bot, User, Cpu, Hash } from 'lucide-react';
 import './App.css';
 
-const API_BASE = 'http://localhost:8001';
+const API_BASE = 'http://localhost:8002';
 
 function App() {
   const [messages, setMessages] = useState([

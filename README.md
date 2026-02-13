@@ -1,46 +1,69 @@
-# Context-Aware Conversational AI Chatbot
+# Context-Aware Conversational AI Chatbot (Aura AI)
 
-A sophisticated, production-ready conversational AI agent demonstrating core NLP capabilities with a modern web interface.
+A sophisticated, production-ready conversational AI agent demonstrating core NLP capabilities with a modern React-based web interface.
 
 ## 🚀 Features
 
-- **Multi-Turn Context Preservation**: Remembers user preferences and previous entities within a session.
-- **Generative Conversational AI**: Produces natural responses using `google/flan-t5-small`.
-- **Intent Classification**: Zero-shot classification using `distilbert-base-uncased-mnli`.
-- **Named Entity Recognition (NER)**: Extracting products, locations, and organizations using BERT.
-- **FastAPI Backend**: High-performance REST API with asynchronous handling.
-- **Premium Glassmorphic UI**: Clean, modern chat interface with smooth micro-animations.
+- **Multi-Turn Context Preservation**: Remembers user subjects (e.g., "Dell laptop") across conversations to resolve follow-up questions using pronouns like "its" or "that".
+- **Grounded Information Engine**: Uses a structured Knowledge Base to provide factual responses about product pricing, shipping, and technical support.
+- **Intent Classification**: High-fidelity NLU for detecting user intent (Order Status, Inquiries, Technical Support).
+- **Named Entity Recognition (NER)**: Robust extraction of products (MacBook, iPhone, Dell, HP) and their variants.
+- **Modern React UI**: Rebuilt with React + Vite + Lucide-React for a premium, responsive, and stateful experience.
+- **FastAPI Backend**: High-performance REST API with session-managed memory.
 
 ## 🛠 Tech Stack
 
-- **Backend**: Python, FastAPI, Hugging Face Transformers, PyTorch.
-- **Frontend**: Vanilla HTML5, CSS3 (Glassmorphism), JavaScript (Fetch API).
-- **Models**: DistilBERT-based Zero-Shot and NER.
+- **Backend**: Python, FastAPI, Pydantic, Manual NLU/NER Logic.
+- **Frontend**: React, Vite, Axios, Lucide-React, CSS3 (Glassmorphism).
 
-## 📦 Installation
+## 📦 Installation & Setup
 
-1. Clone the repository:
+### 1. Backend Setup
+1. Navigate to the project root:
    ```bash
-   git clone <repository-url>
    cd Conversational-AI-Chatbot
    ```
-
-2. Install dependencies:
+2. Install Python dependencies:
    ```bash
-   pip install fastapi uvicorn transformers torch pydantic
+   pip install fastapi uvicorn pydantic requests
+   ```
+3. Run the backend server:
+   ```bash
+   python -m uvicorn backend.main:app --host 0.0.0.0 --port 8002
    ```
 
-3. Run the application:
+### 2. Frontend Setup
+1. Navigate to the React directory:
    ```bash
-   python -m uvicorn backend.main:app --host 0.0.0.0 --port 8001
+   cd frontend-react
+   ```
+2. Install Node dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the frontend development server:
+   ```bash
+   npm run dev -- --port 3001
    ```
 
-4. Open your browser:
-   Navigate to `http://localhost:8001` to start chatting!
+## 🧪 Usage & Testing
 
-## 🧪 Testing
+### Accessing the App
+- **UI**: Open `http://localhost:3001` in your browser.
+- **API Docs**: View the Swagger UI at `http://localhost:8002/docs`.
 
-Run the included test script to verify API functionality:
+### Test Scenario: Context Memory
+Try the following flow to see the bot's intelligence:
+1. **User**: "I ordered a Dell laptop"
+2. **Bot**: "Your order for Dell Laptop is being processed..."
+3. **User**: "What is its status?"
+4. **Bot**: Aura resolves "its" to the **Dell Laptop** and confirms the status.
+
+### Automated Testing
+Run the context verification script:
 ```bash
-python test_api.py
+python test_context.py
 ```
+
+---
+*Developed as a showcase for robust AI conversational systems.*

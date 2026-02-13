@@ -40,13 +40,23 @@ class NLPEngine:
         entities = []
         text_lower = text.lower()
         
-        # Heuristic entity extraction
-        if "macbook" in text_lower:
-            entities.append({"entity": "PRODUCT", "word": "MacBook", "score": 1.0})
-        if "iphone" in text_lower:
-            entities.append({"entity": "PRODUCT", "word": "iPhone", "score": 1.0})
-        if "pro" in text_lower:
-            entities.append({"entity": "PRODUCT_VARIANT", "word": "Pro", "score": 1.0})
+        # Heuristic entity extraction with broader coverage
+        product_patterns = {
+            "MacBook": [r"macbook", r"mac book", r"apple laptop"],
+            "iPhone": [r"iphone", r"i phone", r"apple phone"],
+            "Dell Laptop": [r"dell", r"inspiron", r"latitude", r"xps"],
+            "HP Laptop": [r"hp", r"pavilion", r"envy", r"spectre"],
+            "Samsung Phone": [r"samsung", r"galaxy", r"s24", r"s23"],
+            "Pro": [r"pro", r"max", r"ultra"],
+            "Laptop": [r"laptop", r"notebook", r"computer"],
+            "Phone": [r"phone", r"mobile", r"smartphone"]
+        }
+        
+        for entity_name, patterns in product_patterns.items():
+            if any(re.search(p, text_lower) for p in patterns):
+                # Classify Pro as VARIANT, others as PRODUCT
+                etype = "PRODUCT" if entity_name != "Pro" else "PRODUCT_VARIANT"
+                entities.append({"entity": etype, "word": entity_name, "score": 1.0})
             
         return entities
 
