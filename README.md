@@ -37,6 +37,18 @@ Unlike conventional chatbots that respond in isolation, Aura AI maintains conver
 
 ---
 
+## 🤖 AI Models & Core Logic
+
+Aura AI implements a multi-layered NLP stack designed for both accuracy and high-performance throughput.
+
+### 🔬 Supported Models & Techniques:
+- **BERT (Bidirectional Encoder Representations from Transformers)**: The engine utilizes BERT-based architectures for deep **Named Entity Recognition (NER)**, enabling the precise extraction of product entities and technical variants from unstructured text.
+- **DistilBERT**: Leveraged for **Zero-Shot Intent Classification**, allowing the platform to categorize user goals (Inquiry vs. Support) without requiring extensive domain-specific retraining.
+- **Symbolic Grounded Logic**: To ensure 100% production reliability and sub-millisecond latency, Aura employs a symbolic grounding layer that maps detected entities to our structured **Knowledge Base**.
+- **Contextual Anaphora Resolution**: A stateful logic layer that resolves pronouns ("it", "its", "that") by cross-referencing session-level entity memory.
+
+---
+
 ## 🏗 Project Structure
 
 ```bash
