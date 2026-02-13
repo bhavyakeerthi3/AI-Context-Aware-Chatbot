@@ -130,10 +130,6 @@ Contributions are what make the open-source community such an amazing place to l
 - [FastAPI](https://fastapi.tiangolo.com/) for the incredibly fast web framework.
 - [Vite](https://vitejs.dev/) for the lightning-fast frontend tooling.
 
----
-
-## 📝 License
-This project is open-source and available under the MIT License.
 
 ---
 <div align="center">
