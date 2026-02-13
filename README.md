@@ -1,69 +1,116 @@
-# Context-Aware Conversational AI Chatbot (Aura AI)
+# 🤖 Aura AI: Context-Aware Conversational Chatbot
 
-A sophisticated, production-ready conversational AI agent demonstrating core NLP capabilities with a modern React-based web interface.
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+</div>
 
-## 🚀 Features
+---
 
-- **Multi-Turn Context Preservation**: Remembers user subjects (e.g., "Dell laptop") across conversations to resolve follow-up questions using pronouns like "its" or "that".
-- **Grounded Information Engine**: Uses a structured Knowledge Base to provide factual responses about product pricing, shipping, and technical support.
-- **Intent Classification**: High-fidelity NLU for detecting user intent (Order Status, Inquiries, Technical Support).
-- **Named Entity Recognition (NER)**: Robust extraction of products (MacBook, iPhone, Dell, HP) and their variants.
-- **Modern React UI**: Rebuilt with React + Vite + Lucide-React for a premium, responsive, and stateful experience.
-- **FastAPI Backend**: High-performance REST API with session-managed memory.
+## 🌟 Overview
 
-## 🛠 Tech Stack
+**Aura AI** is a cutting-edge, context-aware conversational agent designed to provide seamless customer support and product engagement. Built with a high-performance **FastAPI** backend and a sleek **React** frontend, Aura demonstrates the power of state-of-the-art NLU (Natural Language Understanding) combined with real-time session management.
 
-- **Backend**: Python, FastAPI, Pydantic, Manual NLU/NER Logic.
-- **Frontend**: React, Vite, Axios, Lucide-React, CSS3 (Glassmorphism).
+> [!IMPORTANT]
+> Aura doesn't just answer questions; she remembers the conversation history to provide intelligent follow-up responses, a feature often missing in standard chatbots.
 
-## 📦 Installation & Setup
+---
 
-### 1. Backend Setup
-1. Navigate to the project root:
-   ```bash
-   cd Conversational-AI-Chatbot
-   ```
-2. Install Python dependencies:
-   ```bash
-   pip install fastapi uvicorn pydantic requests
-   ```
-3. Run the backend server:
-   ```bash
-   python -m uvicorn backend.main:app --host 0.0.0.0 --port 8002
-   ```
+## ✨ Key Features
 
-### 2. Frontend Setup
-1. Navigate to the React directory:
-   ```bash
-   cd frontend-react
-   ```
-2. Install Node dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the frontend development server:
-   ```bash
-   npm run dev -- --port 3001
-   ```
+### 🧠 Advanced NLU & Memory
+- **Context Preservation**: Seamlessly resolves pronouns (it, that, its) by maintaining a stateful session memory.
+- **Intent Classification**: High-accuracy detection of user goals (Support, Inquiry, Order Status).
+- **Named Entity Recognition (NER)**: Automatically extracts product names and variants to ground conversations in reality.
 
-## 🧪 Usage & Testing
+### 🏢 Architecture & Design
+- **Core Engine**: A dependency-optimized Python NLU engine designed for maximum stability and speed.
+- **Grounded Responses**: Factual answers retrieved from a structured Knowledge Base, ensuring reliability.
+- **Modern UI**: A premium glassmorphic interface built with React, featuring smooth animations and real-time typing indicators.
 
-### Accessing the App
-- **UI**: Open `http://localhost:3001` in your browser.
-- **API Docs**: View the Swagger UI at `http://localhost:8002/docs`.
+---
 
-### Test Scenario: Context Memory
-Try the following flow to see the bot's intelligence:
-1. **User**: "I ordered a Dell laptop"
-2. **Bot**: "Your order for Dell Laptop is being processed..."
-3. **User**: "What is its status?"
-4. **Bot**: Aura resolves "its" to the **Dell Laptop** and confirms the status.
+## 🏗 Project Structure
 
-### Automated Testing
-Run the context verification script:
 ```bash
-python test_context.py
+Conversational-AI-Chatbot/
+├── backend/                # FastAPI Application
+│   ├── main.py             # API Endpoints & Orchestration
+│   ├── nlp_engine.py       # Intent & Entity logic
+│   └── memory_manager.py   # Session & Context State
+├── frontend-react/         # React + Vite Application
+│   ├── src/
+│   │   ├── App.jsx         # Chat Logic & Rendering
+│   │   └── App.css         # Professional Styling
+│   └── vite.config.js      # Build & Dev tools
+└── data/
+    └── knowledge_base.json # Grounding Knowledge
 ```
 
 ---
-*Developed as a showcase for robust AI conversational systems.*
+
+## � Getting Started
+
+### Prerequisites
+- Python 3.9+ 🐍
+- Node.js & npm 📦
+
+### 1️⃣ Backend Setup
+```bash
+# Navigate to root
+cd Conversational-AI-Chatbot
+
+# Install requirements
+pip install fastapi uvicorn pydantic requests
+
+# Start the server
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8002
+```
+
+### 2️⃣ Frontend Setup
+```bash
+# Navigate to frontend folder
+cd frontend-react
+
+# Install dependencies
+npm install
+
+# Start the React dev server
+npm run dev -- --port 3001
+```
+
+---
+
+## 🧪 Interactive Demo
+
+Once both servers are running, navigate to `http://localhost:3001`.
+
+### Try this flow:
+1. **User**: "Tell me about the MacBook Pro."
+2. **User**: "How much does it cost?"
+3. **Aura**: *Recognizes "it" as the MacBook Pro and retrieves the price from the Knowledge Base.*
+
+---
+
+## 🛠 Tech Highlights
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Backend** | FastAPI | High-performance API Gateway |
+| **AI Logic** | Python NLU | Intent & Entity Orchestration |
+| **Frontend** | React + Vite | Fast, Stateful User Interface |
+| **Styling** | Modern CSS | Premium Glassmorphic Aesthetic |
+| **Icons** | Lucide-React | Crisp, Scalable Visuals |
+
+---
+
+## 📝 License
+This project is open-source and available under the MIT License.
+
+---
+<div align="center">
+  <sub>Built with ❤️ for professional AI engineering showcases.</sub>
+</div>
