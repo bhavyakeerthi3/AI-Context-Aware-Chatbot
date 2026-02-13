@@ -10,26 +10,30 @@
 
 ---
 
-## 🌟 Overview
+## 📌 Overview
 
-**Aura AI** is a cutting-edge, context-aware conversational agent designed to provide seamless customer support and product engagement. Built with a high-performance **FastAPI** backend and a sleek **React** frontend, Aura demonstrates the power of state-of-the-art NLU (Natural Language Understanding) combined with real-time session management.
+**Aura AI** is a production-grade, context-aware conversational intelligence platform designed to deliver high-quality customer support and product engagement experiences. It leverages a high-performance **FastAPI** backend and a modern **React** frontend to demonstrate the practical application of advanced Natural Language Understanding (NLU) and real-time session memory.
 
-> [!IMPORTANT]
-> Aura doesn't just answer questions; she remembers the conversation history to provide intelligent follow-up responses, a feature often missing in standard chatbots.
+Unlike conventional chatbots that respond in isolation, Aura AI maintains conversational context across turns, enabling intelligent follow-up responses and coherent multi-step interactions.
 
 ---
 
-## ✨ Key Features
+## 🎯 Key Capabilities
 
-### 🧠 Advanced NLU & Memory
-- **Context Preservation**: Seamlessly resolves pronouns (it, that, its) by maintaining a stateful session memory.
-- **Intent Classification**: High-accuracy detection of user goals (Support, Inquiry, Order Status).
-- **Named Entity Recognition (NER)**: Automatically extracts product names and variants to ground conversations in reality.
+### 🧠 Advanced Natural Language Understanding
+- **Context Preservation** – Maintains session-level memory for multi-turn conversations.
+- **Intent Classification** – Accurately identifies user goals such as Support Requests, Product Inquiries, and Order Status Checks.
+- **Named Entity Recognition (NER)** – Extracts product names, variants, and key attributes to ground conversations in real data.
 
-### 🏢 Architecture & Design
-- **Core Engine**: A dependency-optimized Python NLU engine designed for maximum stability and speed.
-- **Grounded Responses**: Factual answers retrieved from a structured Knowledge Base, ensuring reliability.
-- **Modern UI**: A premium glassmorphic interface built with React, featuring smooth animations and real-time typing indicators.
+### 🏢 System Architecture & Design
+- **Core NLU Engine** – Lightweight, dependency-optimized Python engine engineered for speed and stability.
+- **Knowledge-Grounded Responses** – Answers retrieved from a structured knowledge base to ensure factual correctness.
+- **Modern User Interface** – Glassmorphic React interface with smooth animations and real-time typing indicators.
+
+### ⚙ Performance & Reliability
+- **Asynchronous FastAPI** endpoints for low-latency responses.
+- **Stateless API** with session-based memory management.
+- **Modular architecture** enabling easy extension and scaling.
 
 ---
 
