@@ -24,7 +24,9 @@ if __name__ == "__main__":
     try:
         test_health()
         sid = test_chat("Hello!")
-        test_chat("I want to buy a new iPhone.", session_id=sid)
-        test_chat("When will it arrive?", session_id=sid)
+        test_chat("Tell me about the MacBook Pro.", session_id=sid)
+        test_chat("I'm having trouble with my login.", session_id=sid)
+        test_chat("How long does shipping take?", session_id=sid)
+        test_chat("Check my order status.", session_id=sid)
     except Exception as e:
         print(f"Error: {e}")

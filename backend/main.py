@@ -34,21 +34,19 @@ class ChatResponse(BaseModel):
     entities: List[dict]
     confidence: float
 
-def generate_bot_response(intent, entities, history):
-    # Simple rule-based response generation based on intent and entities
+def generate_bot_response(intent, entities, history, grounded_text):
+    # Rule-based grounding for specific mission-critical intents
     if intent == "greeting":
-        return "Hello! I'm your AI assistant. How can I help you today?"
+        return "Hello! I'm Aura, your AI assistant. How can I help you today?"
     elif intent == "farewell":
-        return "Goodbye! Have a great day!"
-    elif intent == "order_status":
-        product = next((e['word'] for e in entities if e['entity'] in ['ORG', 'MISC']), "your items")
-        return f"I've found your order for {product}. It's currently being processed."
-    elif intent == "product_inquiry":
-        return "That's a great question about our products. Let me find the details for you."
+        return "Goodbye! Feel free to reach out if you have more questions."
     elif intent == "human_handoff":
-        return "I'm connecting you with a human agent for further assistance. Please wait a moment."
-    else:
-        return "I'm not exactly sure how to help with that. Could you please rephrase or provide more details?"
+        return "I'm connecting you with a human agent for deeper assistance. One moment please..."
+        
+    if grounded_text:
+        return grounded_text
+        
+    return "I'm processing your request. Could you provide a bit more detail so I can help you better?"
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
@@ -67,7 +65,8 @@ async def chat(request: ChatRequest):
     bot_msg = generate_bot_response(
         nlp_result["intent"], 
         nlp_result["entities"], 
-        memory_manager.get_history(session_id)
+        memory_manager.get_history(session_id),
+        nlp_result["grounded_response"]
     )
     
     memory_manager.add_message(session_id, "bot", bot_msg)

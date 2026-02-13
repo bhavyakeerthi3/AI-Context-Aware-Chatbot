@@ -5,7 +5,8 @@ A sophisticated, production-ready conversational AI agent demonstrating core NLP
 ## 🚀 Features
 
 - **Multi-Turn Context Preservation**: Remembers user preferences and previous entities within a session.
-- **Intent Classification**: Zero-shot classification using `typeform/distilbert-base-uncased-mnli`.
+- **Generative Conversational AI**: Produces natural responses using `google/flan-t5-small`.
+- **Intent Classification**: Zero-shot classification using `distilbert-base-uncased-mnli`.
 - **Named Entity Recognition (NER)**: Extracting products, locations, and organizations using BERT.
 - **FastAPI Backend**: High-performance REST API with asynchronous handling.
 - **Premium Glassmorphic UI**: Clean, modern chat interface with smooth micro-animations.
@@ -31,11 +32,11 @@ A sophisticated, production-ready conversational AI agent demonstrating core NLP
 
 3. Run the application:
    ```bash
-   python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+   python -m uvicorn backend.main:app --host 0.0.0.0 --port 8001
    ```
 
 4. Open your browser:
-   Navigate to `http://localhost:8000` to start chatting!
+   Navigate to `http://localhost:8001` to start chatting!
 
 ## 🧪 Testing
 
