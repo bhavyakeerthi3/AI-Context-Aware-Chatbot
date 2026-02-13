@@ -1,4 +1,4 @@
-# AI-Context-Aware-Chatbot 🤖
+# AI-Context-Aware-Chatbot
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -10,7 +10,7 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 **Aura AI** is a production-grade, context-aware conversational intelligence platform designed to deliver high-quality customer support and product engagement experiences. It leverages a high-performance **FastAPI** backend and a modern **React** frontend to demonstrate the practical application of advanced Natural Language Understanding (NLU) and real-time session memory.
 
@@ -18,30 +18,30 @@ Unlike conventional chatbots that respond in isolation, Aura AI maintains conver
 
 ---
 
-## 🎯 Key Capabilities
+## Key Capabilities
 
-### 🧠 Advanced Natural Language Understanding
+### Advanced Natural Language Understanding
 - **Context Preservation** – Maintains session-level memory for multi-turn conversations.
 - **Intent Classification** – Accurately identifies user goals such as Support Requests, Product Inquiries, and Order Status Checks.
 - **Named Entity Recognition (NER)** – Extracts product names, variants, and key attributes to ground conversations in real data.
 
-### 🏢 System Architecture & Design
+### System Architecture & Design
 - **Core NLU Engine** – Lightweight, dependency-optimized Python engine engineered for speed and stability.
 - **Knowledge-Grounded Responses** – Answers retrieved from a structured knowledge base to ensure factual correctness.
 - **Modern User Interface** – Glassmorphic React interface with smooth animations and real-time typing indicators.
 
-### ⚙ Performance & Reliability
+### Performance & Reliability
 - **Asynchronous FastAPI** endpoints for low-latency responses.
 - **Stateless API** with session-based memory management.
 - **Modular architecture** enabling easy extension and scaling.
 
 ---
 
-## 🤖 AI Models & Core Logic
+## AI Models & Core Logic
 
 Aura AI implements a multi-layered NLP stack designed for both accuracy and high-performance throughput.
 
-### 🔬 Supported Models & Techniques:
+### Supported Models & Techniques:
 - **BERT (Bidirectional Encoder Representations from Transformers)**: The engine utilizes BERT-based architectures for deep **Named Entity Recognition (NER)**, enabling the precise extraction of product entities and technical variants from unstructured text.
 - **DistilBERT**: Leveraged for **Zero-Shot Intent Classification**, allowing the platform to categorize user goals (Inquiry vs. Support) without requiring extensive domain-specific retraining.
 - **Symbolic Grounded Logic**: To ensure 100% production reliability and sub-millisecond latency, Aura employs a symbolic grounding layer that maps detected entities to our structured **Knowledge Base**.
@@ -49,7 +49,7 @@ Aura AI implements a multi-layered NLP stack designed for both accuracy and high
 
 ---
 
-## 🏗 Project Structure
+## Project Structure
 
 ```bash
 Conversational-AI-Chatbot/
@@ -68,13 +68,13 @@ Conversational-AI-Chatbot/
 
 ---
 
-## � Getting Started
+## Getting Started
 
 ### Prerequisites
-- Python 3.9+ 🐍
-- Node.js & npm 📦
+- Python 3.9+
+- Node.js & npm
 
-### 1️⃣ Backend Setup
+### Backend Setup
 ```bash
 # Navigate to root
 cd Conversational-AI-Chatbot
@@ -86,7 +86,7 @@ pip install fastapi uvicorn pydantic requests
 python -m uvicorn backend.main:app --host 0.0.0.0 --port 8002
 ```
 
-### 2️⃣ Frontend Setup
+### Frontend Setup
 ```bash
 # Navigate to frontend folder
 cd frontend-react
@@ -100,7 +100,7 @@ npm run dev -- --port 3001
 
 ---
 
-## 🧪 Interactive Demo
+## Interactive Demo
 
 Once both servers are running, navigate to `http://localhost:3001`.
 
@@ -111,7 +111,7 @@ Once both servers are running, navigate to `http://localhost:3001`.
 
 ---
 
-## 🛠 Tech Highlights
+## Tech Highlights
 
 | Component | Technology | Role |
 | :--- | :--- | :--- |
@@ -123,7 +123,7 @@ Once both servers are running, navigate to `http://localhost:3001`.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -135,15 +135,14 @@ Contributions are what make the open-source community such an amazing place to l
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 - [Hugging Face](https://huggingface.co/) for the state-of-the-art NLP models.
 - [Lucide](https://lucide.dev/) for the beautiful open-source icons.
 - [FastAPI](https://fastapi.tiangolo.com/) for the incredibly fast web framework.
 - [Vite](https://vitejs.dev/) for the lightning-fast frontend tooling.
 
-
 ---
 <div align="center">
-  <sub>Built with ❤️ for professional AI engineering showcases.</sub>
+  <sub>Built for professional AI engineering showcases.</sub>
 </div>
